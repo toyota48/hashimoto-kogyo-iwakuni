@@ -2,7 +2,7 @@ import { company, navLinks, verificationNote } from "@/src/data/company";
 
 export function Footer() {
   return (
-    <footer className="bg-[#081a31] text-white">
+    <footer className="bg-[#111827] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <p className="text-2xl font-black tracking-normal">{company.name}</p>

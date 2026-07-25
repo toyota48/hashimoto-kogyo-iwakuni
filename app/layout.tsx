@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/images/og-hashimoto-kogyo.png",
         width: 1200,
         height: 630,
-        alt: `${company.name}のコーポレートサイト サンプル`,
+        alt: `${company.name}のコーポレートサイト`,
       },
     ],
   },

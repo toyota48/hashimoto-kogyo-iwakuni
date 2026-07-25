@@ -34,10 +34,10 @@ test("server-renders the Hashimoto Kogyo corporate sample", async () => {
   assert.match(html, /株式会社ハシモト工業/);
   assert.match(html, /確かな技術で、地域の未来を支える。/);
   assert.match(html, /岩国市 電気工事/);
-  assert.match(html, /掲載内容はWebサイト制作時のサンプルです/);
+  assert.match(html, /公開時には、実在の施工実績と掲載許可を確認/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /Codex/);
-  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site/);
+  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Building your site|差し替え用|サンプル画像/);
 });
 
 test("removes starter preview files and keeps editable data sources", async () => {

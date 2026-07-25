@@ -71,12 +71,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="section-shell bg-slate-50">
+        <section id="services" className="section-shell bg-[#f5f5f7]">
           <div className="mx-auto max-w-7xl px-5">
             <SectionTitle
               eyebrow="Services"
               title="事業内容"
-              description="電気工事、とび・土工工事を中心に、地域の建設現場や事業活動を支える施工を想定したサンプル構成です。"
+              description="電気工事、とび・土工工事を中心に、地域の建設現場や事業活動を支える施工内容を分かりやすく紹介します。"
             />
             <div className="mt-10 grid gap-7 lg:grid-cols-2">
               {services.map((service) => (
@@ -86,7 +86,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="reasons" className="section-shell bg-[#0f2747] text-white">
+        <section id="reasons" className="section-shell bg-[#111827] text-white">
           <div className="mx-auto max-w-7xl px-5">
             <SectionTitle
               eyebrow="Why Choose Us"
@@ -100,10 +100,10 @@ export default function Home() {
 
                 return (
                   <article
-                    className="group border border-white/15 bg-white/7 p-6 transition duration-200 hover:-translate-y-1 hover:border-[#f97316]/70"
+                    className="group rounded-lg bg-white/8 p-6 transition duration-200 hover:-translate-y-1 hover:bg-white/12"
                     key={reason.title}
                   >
-                    <div className="mb-5 inline-flex size-11 items-center justify-center bg-[#f97316] text-white">
+                    <div className="mb-5 inline-flex size-11 items-center justify-center rounded-lg bg-[#f97316] text-white">
                       <Icon aria-hidden="true" className="size-5" />
                     </div>
                     <h3 className="text-lg font-bold tracking-normal">{reason.title}</h3>
@@ -120,11 +120,8 @@ export default function Home() {
             <SectionTitle
               eyebrow="Projects"
               title="施工実績"
-              description="掲載内容はWebサイト制作時のサンプルです。公開時には、実在の施工実績と掲載許可を確認してください。"
+              description="公開時には、実在の施工実績と掲載許可を確認したうえで内容を更新してください。"
             />
-            <div className="mt-6 border-l-4 border-[#f97316] bg-orange-50 px-5 py-4 text-sm font-semibold text-[#7c2d12]">
-              掲載内容はWebサイト制作時のサンプルです
-            </div>
             <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
                 <ProjectCard key={project.title} project={project} />
@@ -133,7 +130,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="area" className="section-shell bg-slate-50">
+        <section id="area" className="section-shell bg-[#f5f5f7]">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <SectionTitle eyebrow="Area" title="対応エリア" description={company.area.primaryText} align="left" />
@@ -159,23 +156,20 @@ export default function Home() {
 
         <section id="recruit" className="section-shell bg-white">
           <div className="mx-auto max-w-7xl px-5">
-            <div className="grid gap-10 bg-[#0f2747] p-6 text-white md:p-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+            <div className="grid gap-10 rounded-lg bg-[#111827] p-6 text-white shadow-[0_28px_90px_rgba(15,39,71,0.18)] md:p-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
               <div>
                 <p className="mb-4 inline-flex border border-white/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#fb923c]">
                   Recruit
                 </p>
                 <h2 className="text-3xl font-extrabold tracking-normal md:text-4xl">{recruit.title}</h2>
                 <p className="mt-5 leading-8 text-slate-200">{recruit.lead}</p>
-                <p className="mt-4 inline-flex bg-white/10 px-4 py-2 text-sm font-semibold text-orange-100">
-                  採用情報はサンプルです
-                </p>
                 <a className="btn-secondary mt-8" href="#contact">
                   募集要項を見る
                 </a>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {recruit.points.map((point) => (
-                  <article className="border border-white/15 bg-white/8 p-5" key={point.title}>
+                  <article className="rounded-lg bg-white/8 p-5" key={point.title}>
                     <Users aria-hidden="true" className="mb-4 size-6 text-[#fb923c]" />
                     <h3 className="font-bold">{point.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-slate-200">{point.text}</p>
@@ -186,7 +180,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="company" className="section-shell bg-slate-50">
+        <section id="company" className="section-shell bg-[#f5f5f7]">
           <div className="mx-auto max-w-7xl px-5">
             <SectionTitle
               eyebrow="Company"
@@ -194,12 +188,12 @@ export default function Home() {
               description="会社情報は設定ファイルからまとめて変更できます。公開前に所在地、代表者名、電話番号、許可番号をご確認ください。"
             />
             <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_0.95fr]">
-              <div className="overflow-hidden border border-slate-200 bg-white">
+              <div className="overflow-hidden rounded-lg bg-white shadow-[0_18px_56px_rgba(15,39,71,0.08)]">
                 <table className="w-full border-collapse text-left text-sm">
                   <tbody>
                     {companyProfileRows.map((row) => (
-                      <tr className="border-b border-slate-200 last:border-b-0" key={row.label}>
-                        <th className="w-36 bg-slate-100 px-4 py-4 font-bold text-[#0f2747] md:w-48">
+                      <tr className="border-b border-slate-100 last:border-b-0" key={row.label}>
+                        <th className="w-36 bg-[#f5f5f7] px-4 py-4 font-bold text-[#0f2747] md:w-48">
                           {row.label}
                         </th>
                         <td className="px-4 py-4 leading-7 text-slate-700">{row.value}</td>
@@ -213,7 +207,7 @@ export default function Home() {
                 <div>
                   <p className="text-xl font-bold text-[#0f2747]">地図表示エリア</p>
                   <p className="mt-2 leading-7 text-slate-600">
-                    Googleマップは直接埋め込まず、公開時に所在地確認後、地図画像やリンクへ差し替える想定です。
+                    Googleマップは直接埋め込まず、公開時に所在地確認後、地図画像やリンクを設定する想定です。
                   </p>
                 </div>
               </div>
@@ -231,13 +225,13 @@ export default function Home() {
                 description="工事のご相談、お見積もり、採用に関するお問い合わせはこちらからご連絡ください。"
                 align="left"
               />
-              <div className="mt-8 border border-slate-200 bg-slate-50 p-6">
+              <div className="mt-8 rounded-lg bg-[#f5f5f7] p-6">
                 <p className="text-sm font-bold text-slate-500">電話でのお問い合わせ</p>
                 <a className="mt-3 inline-flex text-3xl font-extrabold text-[#0f2747] transition hover:text-[#f97316]" href={company.phoneHref}>
                   {company.phone}
                 </a>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  受付時間などはサンプルでは掲載していません。公開前に正式な受付条件を確認してください。
+                  受付時間などは公開前に正式な条件を確認してください。
                 </p>
               </div>
             </div>

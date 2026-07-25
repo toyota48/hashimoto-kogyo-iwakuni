@@ -5,15 +5,15 @@ import sharp from "sharp";
 const outputDir = new URL("../public/images/", import.meta.url);
 
 const assets = [
-  ["hero-construction-electrical-site.png", "建設現場・電気工事", "安全確認と施工品質を伝えるファーストビュー画像", 1200, 900, "hero"],
-  ["service-electrical-work-placeholder.png", "電気工事", "配線・照明・設備改修を想定した仮画像", 1200, 675, "electric"],
-  ["service-scaffold-earthwork-placeholder.png", "とび・土工工事", "仮設足場・土工事を想定した仮画像", 1200, 675, "earth"],
-  ["project-factory-electrical-placeholder.png", "工場内電気設備工事", "施工実績サンプル", 1200, 900, "factory"],
-  ["project-store-lighting-placeholder.png", "店舗照明設備の更新", "施工実績サンプル", 1200, 900, "store"],
-  ["project-office-wiring-placeholder.png", "事業所内の配線工事", "施工実績サンプル", 1200, 900, "office"],
-  ["project-solar-equipment-placeholder.png", "太陽光発電設備関連工事", "施工実績サンプル", 1200, 900, "solar"],
-  ["project-temporary-scaffold-placeholder.png", "建設現場の仮設工事", "施工実績サンプル", 1200, 900, "scaffold"],
-  ["project-earthwork-site-preparation-placeholder.png", "土工事・現場整備", "施工実績サンプル", 1200, 900, "earthwork"],
+  ["hero-construction-electrical-site.png", "建設現場・電気工事", "安全確認と施工品質", 1200, 900, "hero"],
+  ["service-electrical-work-placeholder.png", "電気工事", "配線・照明・設備改修", 1200, 675, "electric"],
+  ["service-scaffold-earthwork-placeholder.png", "とび・土工工事", "仮設足場・土工事", 1200, 675, "earth"],
+  ["project-factory-electrical-placeholder.png", "工場内電気設備工事", "電気設備工事", 1200, 900, "factory"],
+  ["project-store-lighting-placeholder.png", "店舗照明設備の更新", "照明設備", 1200, 900, "store"],
+  ["project-office-wiring-placeholder.png", "事業所内の配線工事", "配線工事", 1200, 900, "office"],
+  ["project-solar-equipment-placeholder.png", "太陽光発電設備関連工事", "設備関連工事", 1200, 900, "solar"],
+  ["project-temporary-scaffold-placeholder.png", "建設現場の仮設工事", "仮設工事", 1200, 900, "scaffold"],
+  ["project-earthwork-site-preparation-placeholder.png", "土工事・現場整備", "現場整備", 1200, 900, "earthwork"],
   ["og-hashimoto-kogyo.png", "株式会社ハシモト工業", "確かな技術で、地域の未来を支える。", 1200, 630, "og"],
 ];
 
@@ -91,11 +91,10 @@ function svg([filename, title, subtitle, width, height, kind]) {
       </defs>
       <rect width="${width}" height="${height}" fill="url(#bg)"/>
       <rect width="${width}" height="${height}" fill="url(#grid)"/>
-      <rect x="${width * 0.06}" y="${height * 0.08}" width="${width * 0.12}" height="8" fill="#f97316"/>
+      ${isOg ? `<rect x="${width * 0.06}" y="${height * 0.08}" width="${width * 0.12}" height="8" fill="#f97316"/>
       <text x="${width * 0.06}" y="${height * 0.23}" fill="#ffffff" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" font-size="${titleSize}" font-weight="800">${title}</text>
-      <text x="${width * 0.06}" y="${height * 0.32}" fill="#e2e8f0" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" font-size="${subtitleSize}" font-weight="700">${subtitle}</text>
+      <text x="${width * 0.06}" y="${height * 0.32}" fill="#e2e8f0" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" font-size="${subtitleSize}" font-weight="700">${subtitle}</text>` : ""}
       ${motif(kind, width, height)}
-      <text x="${width * 0.06}" y="${height * 0.9}" fill="rgba(255,255,255,0.72)" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" font-size="22" font-weight="700">差し替え用プレースホルダー画像</text>
     </svg>`;
 }
 

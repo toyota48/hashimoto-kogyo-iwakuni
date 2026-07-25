@@ -21,7 +21,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -46,7 +46,7 @@ img {
 }
 
 .section-shell {
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
 }
 
 .btn-primary,
@@ -59,6 +59,7 @@ img {
   gap: 0.5rem;
   padding-inline: 1.25rem;
   font-weight: 800;
+  border-radius: 999px;
   transition:
     transform 180ms ease,
     background-color 180ms ease,
@@ -69,6 +70,7 @@ img {
 .btn-primary {
   background: var(--orange);
   color: #ffffff;
+  box-shadow: 0 16px 34px rgba(249, 115, 22, 0.22);
 }
 
 .btn-primary:hover {
@@ -79,6 +81,7 @@ img {
 .btn-secondary {
   background: #ffffff;
   color: var(--navy);
+  box-shadow: 0 16px 34px rgba(255, 255, 255, 0.08);
 }
 
 .btn-secondary:hover {
@@ -98,24 +101,18 @@ img {
 }
 
 .hero-grid {
-  background:
-    linear-gradient(120deg, rgba(15, 39, 71, 0.96), rgba(15, 39, 71, 0.82)),
-    radial-gradient(circle at 82% 18%, rgba(249, 115, 22, 0.28), transparent 28%),
-    var(--navy);
-}
-
-.hero-image-frame {
-  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+  background: #111827;
 }
 
 .area-map {
   position: relative;
   min-height: 360px;
   overflow: hidden;
-  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(15, 39, 71, 0.08), rgba(249, 115, 22, 0.08)),
+    linear-gradient(135deg, rgba(15, 39, 71, 0.05), rgba(249, 115, 22, 0.08)),
     #ffffff;
+  box-shadow: 0 22px 70px rgba(15, 39, 71, 0.09);
 }
 
 .area-map__ring {
@@ -143,6 +140,7 @@ img {
   top: 50%;
   width: 180px;
   border: 2px solid var(--orange);
+  border-radius: 8px;
   background: #ffffff;
   padding: 1.25rem;
   text-align: center;
@@ -152,7 +150,8 @@ img {
 
 .area-map__label {
   position: absolute;
-  border: 1px solid #dbe3ef;
+  border: 1px solid rgba(219, 227, 239, 0.8);
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
   padding: 0.65rem 0.85rem;
   font-size: 0.85rem;
@@ -185,7 +184,8 @@ img {
   min-height: 320px;
   place-items: center;
   gap: 1rem;
-  border: 1px dashed #94a3b8;
+  border-radius: 8px;
+  border: 1px solid rgba(203, 213, 225, 0.75);
   background:
     linear-gradient(90deg, rgba(15, 39, 71, 0.05) 1px, transparent 1px),
     linear-gradient(rgba(15, 39, 71, 0.05) 1px, transparent 1px),
@@ -202,10 +202,6 @@ img {
 
   .section-shell {
     padding-block: 4rem;
-  }
-
-  .hero-image-frame {
-    clip-path: none;
   }
 
   .area-map {

@@ -8,10 +8,10 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5">
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
         <a className="group flex items-center gap-3" href="#top" onClick={() => setOpen(false)}>
-          <span className="grid size-11 place-items-center bg-[#0f2747] text-lg font-black text-white transition group-hover:bg-[#f97316]">
+          <span className="grid size-9 place-items-center rounded-lg bg-[#0f2747] text-base font-black text-white transition group-hover:bg-[#f97316]">
             橋
           </span>
           <span>
@@ -29,7 +29,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a className="inline-flex h-11 items-center gap-2 bg-[#0f2747] px-4 text-sm font-bold text-white transition hover:bg-[#f97316]" href={company.phoneHref}>
+          <a className="inline-flex h-10 items-center gap-2 rounded-full bg-[#0f2747] px-4 text-sm font-bold text-white transition hover:bg-[#f97316]" href={company.phoneHref}>
             <PhoneCall aria-hidden="true" className="size-4" />
             {company.phone}
           </a>
@@ -39,7 +39,7 @@ export function Header() {
           aria-controls="mobile-navigation"
           aria-expanded={open}
           aria-label={open ? "メニューを閉じる" : "メニューを開く"}
-          className="grid size-11 place-items-center border border-slate-300 text-[#0f2747] lg:hidden"
+          className="grid size-10 place-items-center rounded-full border border-slate-300 text-[#0f2747] lg:hidden"
           onClick={() => setOpen((current) => !current)}
           type="button"
         >
@@ -48,7 +48,7 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-slate-200 bg-white lg:hidden" id="mobile-navigation">
+        <div className="border-t border-slate-200 bg-white/95 backdrop-blur-xl lg:hidden" id="mobile-navigation">
           <nav aria-label="モバイルナビゲーション" className="mx-auto grid max-w-7xl px-5 py-4">
             {navLinks.map((link) => (
               <a

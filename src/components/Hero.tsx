@@ -4,15 +4,23 @@ import { company } from "@/src/data/company";
 
 export function Hero() {
   return (
-    <section className="hero-grid" id="top">
-      <div className="mx-auto grid min-h-[calc(100svh-80px)] max-w-7xl gap-10 px-5 py-12 text-white lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-16">
-        <div className="max-w-2xl">
-          <p className="mb-5 inline-flex border border-white/25 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-orange-200">
+    <section className="hero-grid relative overflow-hidden" id="top">
+      <img
+        alt="建設現場または電気工事をイメージしたビジュアル"
+        className="absolute inset-0 h-full w-full object-cover"
+        height="900"
+        src="/images/hero-construction-electrical-site.png"
+        width="1200"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,18,32,0.76)_0%,rgba(8,18,32,0.48)_42%,rgba(8,18,32,0.76)_100%)]" />
+      <div className="relative mx-auto grid min-h-[calc(100svh-64px)] max-w-6xl place-items-center px-5 py-16 text-center text-white">
+        <div className="max-w-4xl">
+          <p className="mb-5 text-xs font-extrabold uppercase tracking-[0.22em] text-orange-200">
             Electrical / Construction
           </p>
-          <h1 className="text-4xl font-black leading-tight tracking-normal md:text-6xl">{company.catchcopy}</h1>
-          <p className="mt-6 text-base leading-8 text-slate-100 md:text-lg">{company.heroLead}</p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <h1 className="text-4xl font-black leading-tight tracking-normal md:text-7xl">{company.catchcopy}</h1>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-100 md:text-xl">{company.heroLead}</p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a className="btn-primary" href="#services">
               事業内容を見る
               <ArrowRight aria-hidden="true" className="size-5" />
@@ -25,15 +33,6 @@ export function Hero() {
             <PhoneCall aria-hidden="true" className="size-4" />
             電話で相談する {company.phone}
           </a>
-        </div>
-        <div className="hero-image-frame border border-white/20 bg-white/10 p-3">
-          <img
-            alt="建設現場または電気工事をイメージした仮画像"
-            className="aspect-[4/3] h-full w-full object-cover"
-            height="900"
-            src="/images/hero-construction-electrical-site.png"
-            width="1200"
-          />
         </div>
       </div>
     </section>
