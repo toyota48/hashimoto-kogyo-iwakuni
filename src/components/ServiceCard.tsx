@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element -- 静的エクスポートとVinextローカル表示で確実に画像を配信するため。 */
-import { Check, Construction, Zap } from "lucide-react";
+import { Cable, Check, RadioTower, UtilityPole } from "lucide-react";
 import type { Service } from "@/src/data/services";
 
 const iconMap = {
-  zap: Zap,
-  construction: Construction,
+  radioTower: RadioTower,
+  cable: Cable,
+  utilityPole: UtilityPole,
 };
 
 type ServiceCardProps = {

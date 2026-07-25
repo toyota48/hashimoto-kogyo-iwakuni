@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Building2, CheckCircle2, GraduationCap, MapPinned, ShieldCheck, Users } from "lucide-react";
+import { Building2, Cable, CheckCircle2, MapPinned, RadioTower, ShieldCheck, Users } from "lucide-react";
 import { ContactForm } from "@/src/components/ContactForm";
 import { FeatureCard } from "@/src/components/FeatureCard";
 import { Footer } from "@/src/components/Footer";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-static";
 
-const reasonIcons = [ShieldCheck, MapPinned, GraduationCap, CheckCircle2];
+const reasonIcons = [ShieldCheck, RadioTower, Cable, CheckCircle2];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -76,7 +76,7 @@ export default function Home() {
             <SectionTitle
               eyebrow="Services"
               title="事業内容"
-              description="電気工事、とび・土工工事を中心に、地域の建設現場や事業活動を支える施工内容を分かりやすく紹介します。"
+              description="鉄塔送電線工事を中心に、地域の電力インフラを支える施工内容を分かりやすく紹介します。"
             />
             <div className="mt-10 grid gap-7 lg:grid-cols-2">
               {services.map((service) => (
@@ -222,7 +222,7 @@ export default function Home() {
               <SectionTitle
                 eyebrow="Contact"
                 title="お問い合わせ"
-                description="工事のご相談、お見積もり、採用に関するお問い合わせはこちらからご連絡ください。"
+                description="鉄塔送電線工事のご相談、協力会社としてのご相談、採用に関するお問い合わせはこちらからご連絡ください。"
                 align="left"
               />
               <div className="mt-8 rounded-lg bg-[#242426] p-6">

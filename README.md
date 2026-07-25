@@ -1,6 +1,6 @@
 # 株式会社ハシモト工業 コーポレートサイトサンプル
 
-山口県岩国市にある「株式会社ハシモト工業」の公式コーポレートサイトを想定したサンプル実装です。Next.js App Router、TypeScript、Tailwind CSSで構成しています。
+山口県岩国市にある「株式会社ハシモト工業」の公式コーポレートサイトを想定したサンプル実装です。鉄塔送電線工事を主な業務として伝える構成で、Next.js App Router、TypeScript、Tailwind CSSで作成しています。
 
 ## 起動方法
 
@@ -37,10 +37,10 @@ npm run build:github-pages
 
 画像は `public/images/` に配置しています。更新する場合は、以下のように用途が分かるファイル名を保つと管理しやすくなります。
 
-- `hero-construction-electrical-site.png`
-- `service-electrical-work.png`
-- `service-scaffold-earthwork.png`
-- `project-factory-electrical.png` などの施工事例画像
+- `hero-transmission-tower-line.png`
+- `service-transmission-tower-line.png`
+- `service-power-infrastructure.png`
+- `project-transmission-tower-assembly.png` などの施工事例画像
 - `og-hashimoto-kogyo.png`
 
 画像を再生成する場合は、必要に応じて以下を実行できます。

@@ -32,8 +32,8 @@ test("server-renders the Hashimoto Kogyo corporate sample", async () => {
 
   const html = await response.text();
   assert.match(html, /株式会社ハシモト工業/);
-  assert.match(html, /確かな技術で、地域の未来を支える。/);
-  assert.match(html, /岩国市 電気工事/);
+  assert.match(html, /電力インフラを、確かな技術で支える。/);
+  assert.match(html, /岩国市 送電線工事/);
   assert.match(html, /公開時には、実在の施工実績と掲載許可を確認/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /Codex/);

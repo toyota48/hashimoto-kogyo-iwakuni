@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element -- 静的エクスポートとVinextローカル表示で確実に画像を配信するため。 */
-import { ArrowRight, Building2, Construction, PhoneCall, Zap } from "lucide-react";
+import { ArrowRight, Cable, PhoneCall, RadioTower, UtilityPole } from "lucide-react";
 import { company } from "@/src/data/company";
 import { sitePath } from "@/src/lib/sitePath";
 
 const heroSignals = [
-  { label: "電気工事", icon: Zap },
-  { label: "とび・土工工事", icon: Construction },
-  { label: "岩国市を中心に対応", icon: Building2 },
+  { label: "鉄塔送電線工事", icon: RadioTower },
+  { label: "送電設備関連工事", icon: Cable },
+  { label: "岩国市を中心に対応", icon: UtilityPole },
 ];
 
 export function Hero() {
@@ -17,7 +17,7 @@ export function Hero() {
       <div className="mx-auto grid min-h-[calc(100svh-64px)] max-w-7xl place-items-center px-5 py-20 text-center text-white">
         <div className="w-full">
           <p className="mb-5 text-xs font-extrabold uppercase tracking-[0.22em] text-orange-200">
-            Electrical / Construction
+            Transmission Line / Infrastructure
           </p>
           <h1
             aria-label={company.catchcopy}
@@ -59,10 +59,10 @@ export function Hero() {
           </div>
           <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-lg border border-white/10 bg-[#1c1c1e] shadow-[0_28px_90px_rgba(0,0,0,0.36)] md:mt-12">
             <img
-              alt="建設現場と電気工事をイメージしたビジュアル"
+              alt="鉄塔送電線工事をイメージしたビジュアル"
               className="aspect-[16/5] w-full object-cover md:aspect-[16/7]"
               height="900"
-              src={sitePath("/images/hero-construction-electrical-site.png")}
+              src={sitePath("/images/hero-transmission-tower-line.png")}
               width="1200"
             />
           </div>

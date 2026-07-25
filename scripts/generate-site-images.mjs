@@ -5,16 +5,16 @@ import sharp from "sharp";
 const outputDir = new URL("../public/images/", import.meta.url);
 
 const assets = [
-  ["hero-construction-electrical-site.png", "建設現場・電気工事", "安全確認と施工品質", 1200, 900, "hero"],
-  ["service-electrical-work.png", "電気工事", "配線・照明・設備改修", 1200, 675, "electric"],
-  ["service-scaffold-earthwork.png", "とび・土工工事", "仮設足場・土工事", 1200, 675, "earth"],
-  ["project-factory-electrical.png", "工場内電気設備工事", "電気設備工事", 1200, 900, "factory"],
-  ["project-store-lighting.png", "店舗照明設備の更新", "照明設備", 1200, 900, "store"],
-  ["project-office-wiring.png", "事業所内の配線工事", "配線工事", 1200, 900, "office"],
-  ["project-solar-equipment.png", "太陽光発電設備関連工事", "設備関連工事", 1200, 900, "solar"],
-  ["project-temporary-scaffold.png", "建設現場の仮設工事", "仮設工事", 1200, 900, "scaffold"],
-  ["project-earthwork-site-preparation.png", "土工事・現場整備", "現場整備", 1200, 900, "earthwork"],
-  ["og-hashimoto-kogyo.png", "株式会社ハシモト工業", "確かな技術で、地域の未来を支える。", 1200, 630, "og"],
+  ["hero-transmission-tower-line.png", "鉄塔送電線工事", "電力インフラを支える現場", 1200, 900, "tower"],
+  ["service-transmission-tower-line.png", "鉄塔送電線工事", "鉄塔・架線・安全確認", 1200, 675, "tower"],
+  ["service-power-infrastructure.png", "送電設備の関連工事", "現場準備・安全設備・資材", 1200, 675, "infrastructure"],
+  ["project-transmission-tower-assembly.png", "送電線鉄塔の組立関連工事", "鉄塔送電線工事", 1200, 900, "tower"],
+  ["project-overhead-line-stringing.png", "架線・張替に関わる工事", "送電線工事", 1200, 900, "stringing"],
+  ["project-insulator-hardware.png", "がいし・金具類の取付関連作業", "送電設備関連工事", 1200, 900, "insulator"],
+  ["project-tower-maintenance.png", "鉄塔まわりの保守・点検補助", "電力インフラ工事", 1200, 900, "maintenance"],
+  ["project-site-access-preparation.png", "沿線・作業ヤードの整備", "付帯工事", 1200, 900, "access"],
+  ["project-safety-support.png", "安全設備・資材搬入に関わる作業", "現場支援", 1200, 900, "safety"],
+  ["og-hashimoto-kogyo.png", "株式会社ハシモト工業", "電力インフラを、確かな技術で支える。", 1200, 630, "tower"],
 ];
 
 function motif(kind, width, height) {
@@ -26,12 +26,23 @@ function motif(kind, width, height) {
     <path d="M ${width * 0.12} ${baseY - 55} L ${width * 0.88} ${baseY - 55}" stroke="${pale}" stroke-width="5" stroke-dasharray="22 18"/>
   `;
 
-  if (kind === "electric" || kind === "factory" || kind === "office") {
+  if (
+    kind === "tower" ||
+    kind === "stringing" ||
+    kind === "insulator" ||
+    kind === "maintenance" ||
+    kind === "access" ||
+    kind === "safety" ||
+    kind === "infrastructure"
+  ) {
     return `
       ${common}
-      <path d="M ${width * 0.25} ${baseY - 120} h ${width * 0.5} v ${height * 0.14} h -${width * 0.5} z" fill="none" stroke="${pale}" stroke-width="8"/>
-      <path d="M ${width * 0.35} ${baseY - 120} v -${height * 0.12} h ${width * 0.3} v ${height * 0.12}" fill="none" stroke="${line}" stroke-width="10"/>
-      <circle cx="${width * 0.5}" cy="${baseY - 46}" r="20" fill="${line}"/>
+      <path d="M ${width * 0.18} ${baseY} L ${width * 0.31} ${height * 0.22} L ${width * 0.44} ${baseY} Z" fill="none" stroke="${pale}" stroke-width="8"/>
+      <path d="M ${width * 0.56} ${baseY} L ${width * 0.69} ${height * 0.22} L ${width * 0.82} ${baseY} Z" fill="none" stroke="${pale}" stroke-width="8"/>
+      <path d="M ${width * 0.24} ${baseY - 120} H ${width * 0.38} M ${width * 0.62} ${baseY - 120} H ${width * 0.76}" stroke="${line}" stroke-width="9"/>
+      <path d="M ${width * 0.1} ${height * 0.26} C ${width * 0.26} ${height * 0.34}, ${width * 0.42} ${height * 0.34}, ${width * 0.58} ${height * 0.26} S ${width * 0.9} ${height * 0.18}, ${width * 0.98} ${height * 0.28}" fill="none" stroke="${pale}" stroke-width="6"/>
+      <path d="M ${width * 0.12} ${height * 0.34} C ${width * 0.28} ${height * 0.42}, ${width * 0.44} ${height * 0.42}, ${width * 0.6} ${height * 0.34} S ${width * 0.9} ${height * 0.27}, ${width * 0.98} ${height * 0.37}" fill="none" stroke="${line}" stroke-width="5"/>
+      <path d="M ${width * 0.31} ${height * 0.22} V ${baseY} M ${width * 0.69} ${height * 0.22} V ${baseY}" stroke="${pale}" stroke-width="5" opacity="0.8"/>
     `;
   }
 
