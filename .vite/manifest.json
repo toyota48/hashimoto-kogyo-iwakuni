@@ -1,0 +1,80 @@
+{
+  "_Icon-DJ8mW5sL.js": {
+    "file": "assets/Icon-DJ8mW5sL.js",
+    "name": "Icon",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-DjPHiq1u.js"
+    ]
+  },
+  "_company-5Dtqdr2E.js": {
+    "file": "assets/company-5Dtqdr2E.js",
+    "name": "company",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_Icon-DJ8mW5sL.js",
+      "_framework-DjPHiq1u.js"
+    ]
+  },
+  "_framework-DjPHiq1u.js": {
+    "file": "assets/framework-DjPHiq1u.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js"
+    ]
+  },
+  "_rolldown-runtime-S-ySWqyJ.js": {
+    "file": "assets/rolldown-runtime-S-ySWqyJ.js",
+    "name": "rolldown-runtime"
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "assets/layout-segment-context-C7kYUeVd.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-DjPHiq1u.js"
+    ]
+  },
+  "src/components/ContactForm.tsx": {
+    "file": "assets/ContactForm-uHX7bu2Z.js",
+    "name": "ContactForm",
+    "src": "src/components/ContactForm.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_company-5Dtqdr2E.js",
+      "_framework-DjPHiq1u.js"
+    ]
+  },
+  "src/components/Header.tsx": {
+    "file": "assets/Header-BwsgZepp.js",
+    "name": "Header",
+    "src": "src/components/Header.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_company-5Dtqdr2E.js",
+      "_framework-DjPHiq1u.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "assets/index-BQB5GG5x.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-DjPHiq1u.js"
+    ],
+    "dynamicImports": [
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
+      "_Icon-DJ8mW5sL.js",
+      "virtual:vinext-app-browser-entry",
+      "src/components/Header.tsx",
+      "src/components/ContactForm.tsx"
+    ]
+  }
+}
