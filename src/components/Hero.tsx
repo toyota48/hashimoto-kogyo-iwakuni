@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- 静的エクスポートとVinextローカル表示で確実に画像を配信するため。 */
 import { ArrowRight, Building2, Construction, PhoneCall, Zap } from "lucide-react";
 import { company } from "@/src/data/company";
+import { sitePath } from "@/src/lib/sitePath";
 
 const heroSignals = [
   { label: "電気工事", icon: Zap },
@@ -61,7 +62,7 @@ export function Hero() {
               alt="建設現場と電気工事をイメージしたビジュアル"
               className="aspect-[16/5] w-full object-cover md:aspect-[16/7]"
               height="900"
-              src="/images/hero-construction-electrical-site.png"
+              src={sitePath("/images/hero-construction-electrical-site.png")}
               width="1200"
             />
           </div>

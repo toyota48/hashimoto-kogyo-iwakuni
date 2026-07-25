@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { company } from "@/src/data/company";
 import "./globals.css";
 
+const siteUrl = company.seo.siteUrl.replace(/\/$/, "");
+const ogImageUrl = `${siteUrl}/images/og-hashimoto-kogyo.png`;
+const faviconUrl = `${siteUrl}/favicon.svg`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(company.seo.siteUrl),
   title: {
@@ -11,7 +15,7 @@ export const metadata: Metadata = {
   description: company.seo.description,
   keywords: company.seo.keywords,
   alternates: {
-    canonical: "/",
+    canonical: company.seo.siteUrl,
   },
   openGraph: {
     title: company.seo.title,
@@ -22,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-hashimoto-kogyo.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: `${company.name}のコーポレートサイト`,
@@ -33,11 +37,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: company.seo.title,
     description: company.seo.description,
-    images: ["/images/og-hashimoto-kogyo.png"],
+    images: [ogImageUrl],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: faviconUrl,
+    shortcut: faviconUrl,
   },
 };
 

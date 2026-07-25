@@ -1,3 +1,5 @@
+import { sitePath } from "@/src/lib/sitePath";
+
 export type Service = {
   title: string;
   slug: "electrical" | "earthwork";
@@ -14,7 +16,7 @@ export const services: Service[] = [
     title: "電気工事",
     slug: "electrical",
     icon: "zap",
-    image: "/images/service-electrical-work.png",
+    image: sitePath("/images/service-electrical-work.png"),
     imageAlt: "電気設備工事をイメージしたビジュアル",
     description:
       "住宅、店舗、事業所、工場などの電気設備に関する工事を行う想定です。安全性と使いやすさに配慮し、現場に合わせた施工を目指します。",
@@ -32,7 +34,7 @@ export const services: Service[] = [
     title: "とび・土工工事",
     slug: "earthwork",
     icon: "construction",
-    image: "/images/service-scaffold-earthwork.png",
+    image: sitePath("/images/service-scaffold-earthwork.png"),
     imageAlt: "仮設足場工事と土工事をイメージしたビジュアル",
     description:
       "建設現場で必要となる仮設工事や土工事などを行う想定です。現場の安全と作業効率を支える基礎的な工事に対応します。",

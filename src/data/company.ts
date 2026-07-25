@@ -59,8 +59,8 @@ export const company = {
     },
   ],
   seo: {
-    // サンプルURLです。公開時は正式なドメインに変更してください。
-    siteUrl: "https://example.com",
+    // GitHub Pages公開URLです。正式ドメインを使う場合は変更してください。
+    siteUrl: "https://toyota48.github.io/hashimoto-kogyo-iwakuni/",
     title: "株式会社ハシモト工業 | 岩国市の電気工事・とび土工工事",
     description:
       "山口県岩国市の株式会社ハシモト工業のコーポレートサイト。電気工事、とび・土工工事、対応エリア、会社概要、お問い合わせを掲載しています。",

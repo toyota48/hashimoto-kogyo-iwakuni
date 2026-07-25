@@ -19,6 +19,12 @@ npm run build
 
 `next.config.ts` で `output: "export"` を設定しているため、静的サイトとして出力しやすい構成です。
 
+GitHub Pages の Project Pages に配置する場合は、リポジトリ名をベースパスとして渡してビルドします。
+
+```bash
+npm run build:github-pages
+```
+
 ## 文章・会社情報の変更
 
 会社名、所在地、代表者、電話番号、建設業許可番号、SEO文言などは `src/data/company.ts` にまとめています。
