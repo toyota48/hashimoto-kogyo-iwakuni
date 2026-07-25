@@ -32,15 +32,15 @@ npm run build
 画像は `public/images/` に配置しています。更新する場合は、以下のように用途が分かるファイル名を保つと管理しやすくなります。
 
 - `hero-construction-electrical-site.png`
-- `service-electrical-work-placeholder.png`
-- `service-scaffold-earthwork-placeholder.png`
-- `project-...-placeholder.png`
+- `service-electrical-work.png`
+- `service-scaffold-earthwork.png`
+- `project-factory-electrical.png` などの施工事例画像
 - `og-hashimoto-kogyo.png`
 
 画像を再生成する場合は、必要に応じて以下を実行できます。
 
 ```bash
-node scripts/generate-placeholders.mjs
+node scripts/generate-site-images.mjs
 ```
 
 ## 主な構成

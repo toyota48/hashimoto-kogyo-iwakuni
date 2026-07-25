@@ -25,15 +25,9 @@ export function SectionTitle({
       >
         {eyebrow}
       </p>
-      <h2
-        className={`text-3xl font-extrabold tracking-normal md:text-4xl ${
-          isDark ? "text-white" : "text-[#0f2747]"
-        }`}
-      >
-        {title}
-      </h2>
+      <h2 className="text-3xl font-extrabold tracking-normal text-white md:text-4xl">{title}</h2>
       {description ? (
-        <p className={`mt-5 text-base leading-8 ${isDark ? "text-slate-200" : "text-slate-600"}`}>
+        <p className={`mt-5 text-base leading-8 ${isDark ? "text-zinc-200" : "text-zinc-300"}`}>
           {description}
         </p>
       ) : null}

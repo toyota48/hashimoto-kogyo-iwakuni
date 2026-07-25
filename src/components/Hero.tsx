@@ -1,25 +1,37 @@
 /* eslint-disable @next/next/no-img-element -- 静的エクスポートとVinextローカル表示で確実に画像を配信するため。 */
-import { ArrowRight, PhoneCall } from "lucide-react";
+import { ArrowRight, Building2, Construction, PhoneCall, Zap } from "lucide-react";
 import { company } from "@/src/data/company";
 
+const heroSignals = [
+  { label: "電気工事", icon: Zap },
+  { label: "とび・土工工事", icon: Construction },
+  { label: "岩国市を中心に対応", icon: Building2 },
+];
+
 export function Hero() {
+  const [catchcopyLead, catchcopyRest] = company.catchcopy.split("、");
+
   return (
-    <section className="hero-grid relative overflow-hidden" id="top">
-      <img
-        alt="建設現場または電気工事をイメージしたビジュアル"
-        className="absolute inset-0 h-full w-full object-cover"
-        height="900"
-        src="/images/hero-construction-electrical-site.png"
-        width="1200"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,18,32,0.76)_0%,rgba(8,18,32,0.48)_42%,rgba(8,18,32,0.76)_100%)]" />
-      <div className="relative mx-auto grid min-h-[calc(100svh-64px)] max-w-6xl place-items-center px-5 py-16 text-center text-white">
-        <div className="max-w-4xl">
+    <section className="hero-grid overflow-hidden bg-[#080808]" id="top">
+      <div className="mx-auto grid min-h-[calc(100svh-64px)] max-w-7xl place-items-center px-5 py-20 text-center text-white">
+        <div className="w-full">
           <p className="mb-5 text-xs font-extrabold uppercase tracking-[0.22em] text-orange-200">
             Electrical / Construction
           </p>
-          <h1 className="text-4xl font-black leading-tight tracking-normal md:text-7xl">{company.catchcopy}</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-100 md:text-xl">{company.heroLead}</p>
+          <h1
+            aria-label={company.catchcopy}
+            className="mx-auto max-w-6xl text-4xl font-black leading-tight tracking-normal md:text-7xl"
+          >
+            {catchcopyRest ? (
+              <>
+                <span className="block">{catchcopyLead}、</span>
+                <span className="block">{catchcopyRest}</span>
+              </>
+            ) : (
+              company.catchcopy
+            )}
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-zinc-200 md:text-xl">{company.heroLead}</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a className="btn-primary" href="#services">
               事業内容を見る
@@ -33,6 +45,26 @@ export function Hero() {
             <PhoneCall aria-hidden="true" className="size-4" />
             電話で相談する {company.phone}
           </a>
+          <div className="mx-auto mt-10 hidden max-w-3xl gap-3 md:grid md:grid-cols-3">
+            {heroSignals.map(({ icon: Icon, label }) => (
+              <div
+                className="flex min-h-14 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.08] px-4 text-sm font-bold text-zinc-100"
+                key={label}
+              >
+                <Icon aria-hidden="true" className="size-4 text-[#fb923c]" />
+                {label}
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-lg border border-white/10 bg-[#1c1c1e] shadow-[0_28px_90px_rgba(0,0,0,0.36)] md:mt-12">
+            <img
+              alt="建設現場と電気工事をイメージしたビジュアル"
+              className="aspect-[16/5] w-full object-cover md:aspect-[16/7]"
+              height="900"
+              src="/images/hero-construction-electrical-site.png"
+              width="1200"
+            />
+          </div>
         </div>
       </div>
     </section>

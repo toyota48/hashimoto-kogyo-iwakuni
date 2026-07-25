@@ -6,14 +6,14 @@ const outputDir = new URL("../public/images/", import.meta.url);
 
 const assets = [
   ["hero-construction-electrical-site.png", "建設現場・電気工事", "安全確認と施工品質", 1200, 900, "hero"],
-  ["service-electrical-work-placeholder.png", "電気工事", "配線・照明・設備改修", 1200, 675, "electric"],
-  ["service-scaffold-earthwork-placeholder.png", "とび・土工工事", "仮設足場・土工事", 1200, 675, "earth"],
-  ["project-factory-electrical-placeholder.png", "工場内電気設備工事", "電気設備工事", 1200, 900, "factory"],
-  ["project-store-lighting-placeholder.png", "店舗照明設備の更新", "照明設備", 1200, 900, "store"],
-  ["project-office-wiring-placeholder.png", "事業所内の配線工事", "配線工事", 1200, 900, "office"],
-  ["project-solar-equipment-placeholder.png", "太陽光発電設備関連工事", "設備関連工事", 1200, 900, "solar"],
-  ["project-temporary-scaffold-placeholder.png", "建設現場の仮設工事", "仮設工事", 1200, 900, "scaffold"],
-  ["project-earthwork-site-preparation-placeholder.png", "土工事・現場整備", "現場整備", 1200, 900, "earthwork"],
+  ["service-electrical-work.png", "電気工事", "配線・照明・設備改修", 1200, 675, "electric"],
+  ["service-scaffold-earthwork.png", "とび・土工工事", "仮設足場・土工事", 1200, 675, "earth"],
+  ["project-factory-electrical.png", "工場内電気設備工事", "電気設備工事", 1200, 900, "factory"],
+  ["project-store-lighting.png", "店舗照明設備の更新", "照明設備", 1200, 900, "store"],
+  ["project-office-wiring.png", "事業所内の配線工事", "配線工事", 1200, 900, "office"],
+  ["project-solar-equipment.png", "太陽光発電設備関連工事", "設備関連工事", 1200, 900, "solar"],
+  ["project-temporary-scaffold.png", "建設現場の仮設工事", "仮設工事", 1200, 900, "scaffold"],
+  ["project-earthwork-site-preparation.png", "土工事・現場整備", "現場整備", 1200, 900, "earthwork"],
   ["og-hashimoto-kogyo.png", "株式会社ハシモト工業", "確かな技術で、地域の未来を支える。", 1200, 630, "og"],
 ];
 
@@ -81,8 +81,8 @@ function svg([filename, title, subtitle, width, height, kind]) {
     <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
       <defs>
         <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0" stop-color="#0f2747"/>
-          <stop offset="0.58" stop-color="#17385f"/>
+          <stop offset="0" stop-color="#080808"/>
+          <stop offset="0.62" stop-color="#1c1c1e"/>
           <stop offset="1" stop-color="#f97316"/>
         </linearGradient>
         <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">

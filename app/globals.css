@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #172033;
-  --navy: #0f2747;
+  --background: #080808;
+  --foreground: #f5f5f7;
+  --ink: #111111;
   --orange: #f97316;
-  --paper: #f8fafc;
+  --panel: #1c1c1e;
 }
 
 @theme inline {
@@ -80,7 +80,7 @@ img {
 
 .btn-secondary {
   background: #ffffff;
-  color: var(--navy);
+  color: var(--ink);
   box-shadow: 0 16px 34px rgba(255, 255, 255, 0.08);
 }
 
@@ -101,7 +101,15 @@ img {
 }
 
 .hero-grid {
-  background: #111827;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    #080808;
+  background-size:
+    auto,
+    86px 86px,
+    86px 86px;
 }
 
 .area-map {
@@ -110,16 +118,16 @@ img {
   overflow: hidden;
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(15, 39, 71, 0.05), rgba(249, 115, 22, 0.08)),
-    #ffffff;
-  box-shadow: 0 22px 70px rgba(15, 39, 71, 0.09);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(249, 115, 22, 0.12)),
+    #1c1c1e;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
 }
 
 .area-map__ring {
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 1px solid rgba(15, 39, 71, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transform: translate(-50%, -50%);
 }
 
@@ -141,22 +149,22 @@ img {
   width: 180px;
   border: 2px solid var(--orange);
   border-radius: 8px;
-  background: #ffffff;
+  background: #111111;
   padding: 1.25rem;
   text-align: center;
   transform: translate(-50%, -50%);
-  box-shadow: 0 18px 45px rgba(15, 39, 71, 0.14);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
 }
 
 .area-map__label {
   position: absolute;
-  border: 1px solid rgba(219, 227, 239, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(17, 17, 17, 0.86);
   padding: 0.65rem 0.85rem;
   font-size: 0.85rem;
   font-weight: 800;
-  color: var(--navy);
+  color: #f5f5f7;
 }
 
 .area-map__label--1 {
@@ -185,11 +193,11 @@ img {
   place-items: center;
   gap: 1rem;
   border-radius: 8px;
-  border: 1px solid rgba(203, 213, 225, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background:
-    linear-gradient(90deg, rgba(15, 39, 71, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(15, 39, 71, 0.05) 1px, transparent 1px),
-    #ffffff;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    #1c1c1e;
   background-size: 28px 28px;
   padding: 2rem;
   text-align: center;

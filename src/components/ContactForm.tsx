@@ -24,6 +24,10 @@ const initialState: FormState = {
   privacy: false,
 };
 
+const labelClass = "grid gap-2 text-sm font-bold text-white";
+const fieldClass =
+  "min-h-12 rounded-lg border border-white/10 bg-[#111111] px-3 text-base font-normal text-white transition placeholder:text-zinc-500 focus:border-[#f97316] focus:outline-none";
+
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<string[]>([]);
@@ -49,41 +53,41 @@ export function ContactForm() {
   }
 
   return (
-    <form className="rounded-lg bg-[#f5f5f7] p-5 md:p-8" noValidate onSubmit={handleSubmit}>
+    <form className="rounded-lg bg-[#242426] p-5 md:p-8" noValidate onSubmit={handleSubmit}>
       <div className="grid gap-5 md:grid-cols-2">
-        <label className="grid gap-2 text-sm font-bold text-[#0f2747]">
+        <label className={labelClass}>
           お名前
           <input
-            className="min-h-12 rounded-lg border border-slate-200 bg-white px-3 text-base font-normal text-slate-800"
+            className={fieldClass}
             onChange={(event) => updateField("name", event.target.value)}
             required
             type="text"
             value={form.name}
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold text-[#0f2747]">
+        <label className={labelClass}>
           会社名
           <input
-            className="min-h-12 rounded-lg border border-slate-200 bg-white px-3 text-base font-normal text-slate-800"
+            className={fieldClass}
             onChange={(event) => updateField("companyName", event.target.value)}
             type="text"
             value={form.companyName}
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold text-[#0f2747]">
+        <label className={labelClass}>
           メールアドレス
           <input
-            className="min-h-12 rounded-lg border border-slate-200 bg-white px-3 text-base font-normal text-slate-800"
+            className={fieldClass}
             onChange={(event) => updateField("email", event.target.value)}
             required
             type="email"
             value={form.email}
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold text-[#0f2747]">
+        <label className={labelClass}>
           電話番号
           <input
-            className="min-h-12 rounded-lg border border-slate-200 bg-white px-3 text-base font-normal text-slate-800"
+            className={fieldClass}
             inputMode="tel"
             onChange={(event) => updateField("phone", event.target.value)}
             type="tel"
@@ -92,10 +96,10 @@ export function ContactForm() {
         </label>
       </div>
 
-      <label className="mt-5 grid gap-2 text-sm font-bold text-[#0f2747]">
+      <label className={`${labelClass} mt-5`}>
         お問い合わせ種別
         <select
-          className="min-h-12 rounded-lg border border-slate-200 bg-white px-3 text-base font-normal text-slate-800"
+          className={fieldClass}
           onChange={(event) => updateField("category", event.target.value)}
           required
           value={form.category}
@@ -109,20 +113,20 @@ export function ContactForm() {
         </select>
       </label>
 
-      <label className="mt-5 grid gap-2 text-sm font-bold text-[#0f2747]">
+      <label className={`${labelClass} mt-5`}>
         お問い合わせ内容
         <textarea
-          className="min-h-40 rounded-lg border border-slate-200 bg-white px-3 py-3 text-base font-normal leading-7 text-slate-800"
+          className={`${fieldClass} min-h-40 py-3 leading-7`}
           onChange={(event) => updateField("message", event.target.value)}
           required
           value={form.message}
         />
       </label>
 
-      <label className="mt-5 flex items-start gap-3 text-sm font-semibold leading-7 text-slate-700">
+      <label className="mt-5 flex items-start gap-3 text-sm font-semibold leading-7 text-zinc-300">
         <input
           checked={form.privacy}
-          className="mt-1 size-5 border-slate-300 accent-[#f97316]"
+          className="mt-1 size-5 border-zinc-500 accent-[#f97316]"
           onChange={(event) => updateField("privacy", event.target.checked)}
           required
           type="checkbox"
