@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile, rm } from "node:fs/promises";
 import { join, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -43,3 +43,15 @@ for (const file of await walk(outputDir)) {
 }
 
 await writeFile(join(outputDir, ".nojekyll"), "");
+
+// Retired illustrative assets are kept in source, but are not part of the live site.
+const retiredImages = [
+  "hero-transmission-tower-line.png", "service-transmission-tower-line.png",
+  "service-power-infrastructure.png", "og-hashimoto-kogyo.png",
+  "project-transmission-tower-assembly.png", "project-overhead-line-stringing.png",
+  "project-insulator-hardware.png", "project-tower-maintenance.png",
+  "project-site-access-preparation.png", "project-safety-support.png",
+];
+for (const filename of retiredImages) {
+  await rm(join(outputDir, "images", filename), { force: true });
+}

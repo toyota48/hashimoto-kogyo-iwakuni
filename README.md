@@ -1,62 +1,41 @@
-# 株式会社ハシモト工業 コーポレートサイトサンプル
+# 株式会社ハシモト工業 コーポレートサイト
 
-山口県岩国市にある「株式会社ハシモト工業」の公式コーポレートサイトを想定したサンプル実装です。鉄塔送電線工事を主な業務として伝える構成で、Next.js App Router、TypeScript、Tailwind CSSで作成しています。
+岩国市の鉄塔送電線工事会社の案内サイト。Vinext / React / TypeScript。
 
-## 起動方法
+## 開発・確認
 
 ```bash
-npm install
 npm run dev
-```
-
-ブラウザで `http://localhost:3000` を開くと確認できます。
-
-## ビルド
-
-```bash
 npm run build
+node --test tests/rendered-html.test.mjs
+npx tsc --noEmit
 ```
 
-`next.config.ts` で `output: "export"` を設定しているため、静的サイトとして出力しやすい構成です。
+GitHub Pages用の静的出力は `npm run build:github-pages`。出力先は `dist/client/`。公開URLは https://toyota48.github.io/hashimoto-kogyo-iwakuni/ 。
 
-GitHub Pages の Project Pages に配置する場合は、リポジトリ名をベースパスとして渡してビルドします。
+## 編集箇所
 
-```bash
-npm run build:github-pages
-```
+- `app/page.tsx`：会社紹介、事業内容、会社概要、採用案内、電話問い合わせ
+- `app/globals.css`：白・濃紺を基調にしたレスポンシブレイアウト
+- `src/data/company.ts`：会社情報とSEO
+- `src/data/recruit.ts`：採用に関する問い合わせ案内
+- `src/components/Hero.tsx`：メインビジュアル
 
-## 文章・会社情報の変更
+## 掲載情報
 
-会社名、所在地、代表者、電話番号、建設業許可番号、SEO文言などは `src/data/company.ts` にまとめています。
+事業内容は依頼者提供の「鉄塔送電線工事」が前提。会社名・地域・電話番号は従来の情報を維持。詳細住所、代表者、資本金、許可番号、具体的な施工範囲、採用条件は正式確認後に追加する。未確認の詳細を構造化データにも含めていない。
 
-事業内容は `src/data/services.ts`、施工事例サンプルは `src/data/projects.ts`、採用情報は `src/data/recruit.ts` を編集してください。
+旧サンプルの施工実績と送信先未設定のフォームは表示しない。問い合わせは電話に一本化。具体的な自社施工写真・掲載可能な工事情報が揃った段階で実績を追加する。`src/data/projects.ts` などの旧サンプルは未使用のため、編集しても公開画面には反映されない。
 
-所在地、代表者名、電話番号、許可番号、対応エリア、採用条件、施工対応範囲は仮情報です。公開前に必ず正式情報へ更新してください。
+## 写真の出典
 
-## 画像の変更
+`public/images/transmission-towers-japan.jpg`
 
-画像は `public/images/` に配置しています。更新する場合は、以下のように用途が分かるファイル名を保つと管理しやすくなります。
+- 作品：Japanese Transmission tower 2022-04.jpg
+- 撮影者：Minirexs
+- 出典：https://commons.wikimedia.org/wiki/File:Japanese_Transmission_tower_2022-04.jpg
+- ライセンス：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+- 元画像を保存し、表示枠でトリミング。写真部分には同ライセンスが適用される。
+- 自社施工実績ではなくイメージ写真であることを画像の近くに明記し、フッターでクレジットを表示。
 
-- `hero-transmission-tower-line.png`
-- `service-transmission-tower-line.png`
-- `service-power-infrastructure.png`
-- `project-transmission-tower-assembly.png` などの施工事例画像
-- `og-hashimoto-kogyo.png`
-
-画像を再生成する場合は、必要に応じて以下を実行できます。
-
-```bash
-node scripts/generate-site-images.mjs
-```
-
-## 主な構成
-
-- `app/page.tsx`: トップページの各セクション
-- `app/layout.tsx`: title、description、OGPなどのメタ情報
-- `src/components/`: Header、Footer、Hero、カード、フォームなど
-- `src/data/`: 会社情報、事業内容、施工事例、採用情報
-- `public/images/`: ページ内で使用する画像
-
-## 注意
-
-このサイトは公開前の制作データです。架空の受賞歴、施工件数、創業年数、お客様の声は掲載していません。
+将来自社の現場写真に差し替える際は、画像、alt、キャプション、フッター、OGP画像を合わせて更新する。

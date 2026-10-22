@@ -3,7 +3,7 @@ import { company } from "@/src/data/company";
 import "./globals.css";
 
 const siteUrl = company.seo.siteUrl.replace(/\/$/, "");
-const ogImageUrl = `${siteUrl}/images/og-hashimoto-kogyo.png`;
+const ogImageUrl = `${siteUrl}/images/transmission-towers-japan.jpg`;
 const faviconUrl = `${siteUrl}/favicon.svg`;
 
 export const metadata: Metadata = {
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImageUrl,
-        width: 1200,
-        height: 630,
+        width: 3229,
+        height: 2422,
         alt: `${company.name}のコーポレートサイト`,
       },
     ],
