@@ -29,7 +29,7 @@ export function SiteMotion() {
       }
 
       const hero = document.getElementById("top");
-      const photo = document.querySelector<HTMLElement>(".hero-photo img");
+      const photo = document.querySelector<HTMLElement>(".hero-slides");
       let frame = 0;
       function updatePhoto() {
         frame = 0;

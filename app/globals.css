@@ -137,3 +137,20 @@ h3 { margin:0; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:3
   .motion-pending { opacity:1; transform:none; }
   .hero-photo img { transform:none; }
 }
+
+/* The slide stack is separate from controls, so scroll motion never moves buttons. */
+.hero-slides { position:absolute; inset:0; transform:translate3d(0,var(--hero-shift,0px),0) scale(1.065); }
+.hero-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.25s ease-in-out; }
+.hero-slide.is-active { opacity:1; }
+.hero-slideshow .hero-slide img { width:100%; height:100%; transform:none; }
+.slide-controls { position:absolute; bottom:22px; right:22px; z-index:2; display:flex; align-items:center; gap:6px; padding:3px 10px 3px 16px; border:1px solid #ffffff50; border-radius:40px; background:#182d3abf; color:#fff; }
+.slide-count { font-size:12px; letter-spacing:.07em; margin-right:8px; }
+.slide-dots { display:flex; }
+.slide-controls button { width:40px; height:40px; display:grid; place-items:center; border:0; background:transparent; color:#fff; cursor:pointer; }
+.slide-dots button span { width:7px; height:7px; border:1px solid #ffffffc0; border-radius:50%; transition:background .2s,transform .2s; }
+.slide-dots button[aria-pressed="true"] span { background:#fff; transform:scale(1.2); }
+.slide-controls button:disabled { opacity:.4; cursor:default; }
+.slide-controls button:focus-visible { outline:2px solid #fff; outline-offset:-3px; border-radius:50%; }
+.slide-pause { font-size:15px; border-left:1px solid #ffffff50!important; }
+@media(max-width:600px) { .hero-slideshow .hero-slide img { object-position:center 12%!important; } .slide-controls { bottom:14px; right:14px; gap:0; padding:2px 7px 2px 13px; } }
+@media(prefers-reduced-motion:reduce) { .hero-slides { transform:none; } .hero-slide { transition:none; } }

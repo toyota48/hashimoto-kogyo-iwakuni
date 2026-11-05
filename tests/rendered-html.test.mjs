@@ -24,7 +24,9 @@ test("renders the company site without draft content or fabricated project claim
   assert.match(html, /lang="ja"/);
   assert.doesNotMatch(html, /公開前|公開時には|想定|要確認|仮情報|選ばれる理由|施工実績|送信する|Codex|codex-preview|Building your site/);
   assert.doesNotMatch(html, /hero-transmission-tower-line\.png|project-[\w-]+\.png/);
-  assert.match(html, /当社の施工現場ではありません/);
+  assert.doesNotMatch(html, /イメージ写真|当社の施工現場ではありません|施工範囲は個別に|対応範囲は、お問い合わせ/);
+  assert.match(html, /aria-roledescription="カルーセル"/);
+  assert.match(html, /3枚目の写真を表示/);
   assert.match(html, /Minirexs/);
   assert.match(html, /https:\/\/creativecommons.org\/licenses\/by-sa\/4.0\//);
 
