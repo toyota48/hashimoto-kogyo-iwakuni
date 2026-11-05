@@ -91,3 +91,49 @@ h3 { margin:0; font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-size:3
 @media(max-width:900px) { .site-header { height:80px; } html { scroll-padding-top:85px; } .desktop-nav { display:none; } .menu-toggle { display:block; border:1px solid #cad3d7; padding:11px 14px; font-size:11px; background:#fff; color:#182d3a; } .mobile-nav:not([hidden]) { display:grid; position:absolute; top:80px; inset-inline:0; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 12px 18px #182d3a0d; padding:15px 25px; } .mobile-nav>a { padding:15px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; font-size:13px; } .mobile-nav>a:last-child { border:0; } .hero-copy { padding:65px 9% 45px; } h1 { font-size:clamp(28px,4vw,38px); } .eyebrow { font-size:9px; } .hero-intro { font-size:12px; } .hero-index { margin-top:45px; } .hero-photo { min-height:480px; } .section { padding:75px 30px; } .about-body,.company-section { gap:35px; } .work-row { grid-template-columns:45px 1fr 1.4fr; gap:15px; } .work-row h4 { font-size:17px; } .recruit-inner { grid-template-columns:1.4fr 1fr; gap:35px; } .recruit-inner h3 { font-size:24px; } .footer-top { flex-wrap:wrap; } .footer-top nav { flex-wrap:wrap; } }
 @media(max-width:600px) { .site-header { padding:0 20px; gap:10px; } .brand { font-size:16px; letter-spacing:0; } .brand-caption { font-size:9px; letter-spacing:.03em; } .menu-toggle { padding:10px; font-size:10px; } .hero { grid-template-columns:1fr; } .hero-copy { padding:48px 26px 35px; } .hero-copy .eyebrow { margin-bottom:23px; } h1 { font-size:clamp(27px,8.8vw,36px); line-height:1.6; } .hero-intro { max-width:280px; font-size:13px; margin:20px 0 14px; } .hero-index { display:none; } .hero-photo { min-height:0; height:300px; } .hero-photo img { object-position:center 47%; } .hero-photo figcaption { font-size:8px; padding:5px 8px; } .hero-bottom { padding:18px 22px; font-size:10px; } .hero-bottom>a span { margin-left:12px; } .section { padding:60px 24px; } .section-label { margin-bottom:30px; } .section-label h2 { font-size:13px; } .about-body,.company-section,.recruit-inner,.contact-section { grid-template-columns:1fr; gap:30px; } h3 { font-size:29px; } .about-body p { font-size:13px; } .desktop-break { display:none; } .work-heading { display:block; margin-bottom:35px; } .work-heading>p { font-size:12px; margin-top:18px; } .work-row { grid-template-columns:30px 1fr; gap:13px; padding:28px 0; } .work-row h4 { font-size:19px; } .work-row>div { grid-column:2; } .work-context { grid-template-columns:1fr; gap:12px; padding:22px; margin-top:15px; } .work-context small { grid-column:1; } .company-wordmark { display:none; } .company-section { gap:0; } .company-table>div { grid-template-columns:80px 1fr; gap:10px; padding:20px 0; font-size:12px; } .recruit-inner h3 { font-size:24px; } .recruit-inner aside { border-left:0; border-top:1px solid #617583; padding:28px 0 0; } .contact-section h2 { font-size:20px; } .phone-link { font-size:35px; } .footer-top { display:grid; gap:22px; } .footer-top nav { display:grid; grid-template-columns:1fr 1fr; gap:18px; } .footer-bottom { display:block; margin-top:25px; } .footer-bottom p { margin-top:17px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+/* Motion is an enhancement: the server-rendered page remains fully readable. */
+@keyframes content-enter {
+  from { opacity:0; transform:translate3d(0,20px,0); }
+  to { opacity:1; transform:translate3d(0,0,0); }
+}
+@keyframes photo-enter {
+  from { clip-path:inset(0 100% 0 0); }
+  to { clip-path:inset(0 0 0 0); }
+}
+@keyframes menu-enter {
+  from { opacity:0; transform:translateY(-9px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@media(prefers-reduced-motion:no-preference) {
+  .hero-copy > * { animation:content-enter .85s cubic-bezier(.22,.68,.25,1) both; }
+  .hero-copy > :nth-child(1) { animation-delay:.05s; }
+  .hero-copy > :nth-child(2) { animation-delay:.16s; }
+  .hero-copy > :nth-child(3) { animation-delay:.28s; }
+  .hero-copy > :nth-child(4) { animation-delay:.4s; }
+  .hero-copy > :nth-child(5) { animation-delay:.5s; }
+  .hero-photo { animation:photo-enter 1.1s cubic-bezier(.22,.68,.25,1) both; }
+  .hero-photo img { transform:translate3d(0,var(--hero-shift,0px),0) scale(1.065); }
+  .motion-pending { opacity:0; transform:translate3d(0,24px,0); transition:opacity .75s cubic-bezier(.22,.68,.25,1),transform .75s cubic-bezier(.22,.68,.25,1); }
+  .motion-pending.is-visible { opacity:1; transform:translate3d(0,0,0); }
+  .company-table > .motion-pending:nth-child(2) { transition-delay:60ms; }
+  .company-table > .motion-pending:nth-child(3) { transition-delay:120ms; }
+  .company-table > .motion-pending:nth-child(4) { transition-delay:180ms; }
+  .mobile-nav:not([hidden]) { animation:menu-enter .26s ease-out both; transform-origin:top; }
+}
+.text-link { position:relative; }
+.text-link::after { content:""; position:absolute; inset:auto 0 -1px; height:1px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+.text-link:hover::after,.text-link:focus-visible::after { transform:scaleX(1); }
+.text-link > span,.header-contact > span,.hero-bottom > a > span { display:inline-block; transition:transform .3s cubic-bezier(.22,.68,.25,1); }
+.text-link:hover > span,.text-link:focus-visible > span,.header-contact:hover > span { transform:translate(3px,-3px); }
+.hero-bottom > a:hover > span { transform:translateY(4px); }
+.desktop-nav > a { position:relative; }
+.desktop-nav > a:not(.header-contact)::after { content:""; height:1px; position:absolute; bottom:-6px; left:0; right:0; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s; }
+.desktop-nav > a:hover::after,.desktop-nav > a:focus-visible::after { transform:scaleX(1); }
+.phone-link { transition:color .25s,border-color .25s; }
+.phone-link:hover { border-color:var(--accent); }
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none!important; transition:none!important; }
+  .motion-pending { opacity:1; transform:none; }
+  .hero-photo img { transform:none; }
+}

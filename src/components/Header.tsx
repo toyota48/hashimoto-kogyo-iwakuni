@@ -1,8 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { company, navLinks } from "@/src/data/company";
 export function Header() {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    if (open) document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
   return <header className="site-header">
     <a className="brand" href="#top" onClick={() => setOpen(false)}><span className="brand-caption">山口県岩国市・鉄塔送電線工事</span><span>{company.name}</span></a>
     <nav className="desktop-nav" aria-label="主要ナビゲーション">{navLinks.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}<a className="header-contact" href="#contact">お問い合わせ <span aria-hidden="true">↗</span></a></nav>
