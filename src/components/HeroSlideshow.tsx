@@ -8,7 +8,6 @@ export function HeroSlideshow() {
   const container = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [loaded, setLoaded] = useState<boolean[]>(heroPhotos.map(() => false));
-  const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(true);
   const [interacting, setInteracting] = useState(false);
   const [inView, setInView] = useState(true);
@@ -36,7 +35,7 @@ export function HeroSlideshow() {
   }, []);
 
   useEffect(() => {
-    if (paused || reduced || interacting || !inView || !tabVisible) return;
+    if (reduced || interacting || !inView || !tabVisible) return;
     const timer = window.setInterval(() => {
       setActive(current => {
         for (let step = 1; step < heroPhotos.length; step++) {
@@ -47,7 +46,17 @@ export function HeroSlideshow() {
       });
     }, 5500);
     return () => window.clearInterval(timer);
-  }, [loaded, paused, reduced, interacting, inView, tabVisible]);
+  }, [active, loaded, reduced, interacting, inView, tabVisible]);
+
+  function advance(direction: -1 | 1) {
+    setActive(current => {
+      for (let step = 1; step < heroPhotos.length; step++) {
+        const next = (current + direction * step + heroPhotos.length) % heroPhotos.length;
+        if (loaded[next]) return next;
+      }
+      return current;
+    });
+  }
 
   return <div
     ref={container}
@@ -55,6 +64,12 @@ export function HeroSlideshow() {
     role="region"
     aria-roledescription="カルーセル"
     aria-label="送電鉄塔の写真"
+    onKeyDown={event => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        advance(event.key === "ArrowLeft" ? -1 : 1);
+      }
+    }}
     onMouseEnter={() => setInteracting(true)}
     onMouseLeave={() => setInteracting(false)}
     onFocusCapture={() => setInteracting(true)}
@@ -72,16 +87,14 @@ export function HeroSlideshow() {
         />
       </div>)}
     </div>
-    <div className="slide-controls">
-      <span className="slide-count" aria-hidden="true">0{active + 1} / 0{heroPhotos.length}</span>
-      <div className="slide-dots" role="group" aria-label="写真を選ぶ">
-        {heroPhotos.map((photo, index) => <button
-          type="button" key={photo.src} aria-label={`${index + 1}枚目の写真を表示`}
-          aria-pressed={active === index} disabled={!loaded[index]}
-          onClick={() => { setActive(index); setPaused(true); }}
-        ><span /></button>)}
-      </div>
-      {!reduced && <button className="slide-pause" type="button" aria-label={paused ? "写真の自動切替を再生" : "写真の自動切替を停止"} aria-pressed={paused} onClick={() => setPaused(value => !value)}><span aria-hidden="true">{paused ? "▶" : "Ⅱ"}</span></button>}
+    <div className="slide-controls" role="group" aria-label="写真の切替">
+      <button className="slide-arrow" type="button" aria-label="前の写真を表示" disabled={loaded.filter(Boolean).length < 2} onClick={() => advance(-1)}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7" /></svg>
+      </button>
+      <span className="slide-count" aria-live="off">0{active + 1} / 0{heroPhotos.length}</span>
+      <button className="slide-arrow" type="button" aria-label="次の写真を表示" disabled={loaded.filter(Boolean).length < 2} onClick={() => advance(1)}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7" /></svg>
+      </button>
     </div>
   </div>;
 }

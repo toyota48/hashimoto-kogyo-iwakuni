@@ -26,7 +26,9 @@ test("renders the company site without draft content or fabricated project claim
   assert.doesNotMatch(html, /hero-transmission-tower-line\.png|project-[\w-]+\.png/);
   assert.doesNotMatch(html, /イメージ写真|当社の施工現場ではありません|施工範囲は個別に|対応範囲は、お問い合わせ/);
   assert.match(html, /aria-roledescription="カルーセル"/);
-  assert.match(html, /3枚目の写真を表示/);
+  assert.match(html, /前の写真を表示/);
+  assert.match(html, /次の写真を表示/);
+  assert.doesNotMatch(html, /自動切替を停止|自動切替を再生/);
   assert.match(html, /Minirexs/);
   assert.match(html, /https:\/\/creativecommons.org\/licenses\/by-sa\/4.0\//);
 
@@ -37,7 +39,7 @@ test("renders the company site without draft content or fabricated project claim
   assert.doesNotMatch(html, /<form\b/);
 
   const images = [...html.matchAll(/<img\b[^>]*src="([^"]+)"/g)];
-  assert.ok(images.length > 0);
+  assert.equal(images.length, 5);
   for (const [, path] of images) await access(new URL(`../public${path.replace(/^\/hashimoto-kogyo-iwakuni(?=\/)/, "")}`, import.meta.url));
 });
 
