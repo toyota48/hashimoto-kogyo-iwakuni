@@ -88,11 +88,11 @@ export function HeroSlideshow() {
       </div>)}
     </div>
     <div className="slide-controls" role="group" aria-label="写真の切替">
-      <button className="slide-arrow" type="button" aria-label="前の写真を表示" disabled={loaded.filter(Boolean).length < 2} onClick={() => advance(-1)}>
+      <button className="slide-arrow slide-prev" type="button" aria-label="前の写真を表示" disabled={loaded.filter(Boolean).length < 2} onClick={() => advance(-1)}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7" /></svg>
       </button>
       <span className="slide-count" aria-live="off">0{active + 1} / 0{heroPhotos.length}</span>
-      <button className="slide-arrow" type="button" aria-label="次の写真を表示" disabled={loaded.filter(Boolean).length < 2} onClick={() => advance(1)}>
+      <button className="slide-arrow slide-next" type="button" aria-label="次の写真を表示" disabled={loaded.filter(Boolean).length < 2} onClick={() => advance(1)}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7" /></svg>
       </button>
     </div>
