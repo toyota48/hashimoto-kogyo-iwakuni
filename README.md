@@ -16,7 +16,7 @@ GitHub Pages用の静的出力は `npm run build:github-pages`。出力先は `d
 ## 編集箇所
 
 - `app/page.tsx`：会社紹介、事業内容、会社概要、採用案内、電話問い合わせ
-- `app/globals.css`：白・濃紺を基調にしたレスポンシブレイアウト
+- `app/globals.css`：白・黒と淡いブルー・ゴールドを基調にしたレスポンシブレイアウト
 - `src/data/company.ts`：会社情報とSEO
 - `src/data/recruit.ts`：採用に関する問い合わせ案内
 - `src/components/Hero.tsx`：メインビジュアル
@@ -39,3 +39,7 @@ GitHub Pages用の静的出力は `npm run build:github-pages`。出力先は `d
 - 自社施工実績ではなくイメージ写真であることを画像の近くに明記し、フッターでクレジットを表示。
 
 将来自社の現場写真に差し替える際は、画像、alt、キャプション、フッター、OGP画像を合わせて更新する。
+
+## デザイン更新
+
+AGG COMPANY（https://agg-company.jp/）の余白、太い英字、淡い曲線を参考に、独自のSVGと社名表記で再構成。参照先のロゴ・画像・文章は使用していません。メニューはEscapeキーで閉じられます。スマートフォンでも写真注記・補足文は12px以上で表示します。
